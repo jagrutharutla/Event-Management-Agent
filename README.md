@@ -1,11 +1,99 @@
-# Event-Management-Agent
 
-Event Planner AI is a Python-based project to assist in event planning through AI-powered agents. This project uses the Google ADK (Assistant Development Kit) and provides a web interface for interaction.
 
-## Project Description
+# Event Planning Agent System
 
-This project leverages Google's ADK to build intelligent agents for event management. It is developed in Python within a virtual environment for dependency management and ease of use.
+## Overview
 
+This project automates event planning using intelligent AI agents to scout venues, catering, entertainment, manage guests, optimize budgets, and generate professional communications. The system orchestrates multiple specialized agents working together to create cost-effective event plans based on user inputs.
+
+***
+
+## Features
+
+- Automated extraction of event details (type, city, budget)
+- Parallel scouting for venues, catering, and entertainment options
+- Plan synthesis combining scouting results into cohesive plans
+- Budget optimization with iterative cost-cutting strategies
+- Guest list management (add, view guests)
+- Professional announcement email drafting and mock sending
+- Comprehensive final report generation
+
+***
+
+## Technology Stack
+
+| Technology      | Purpose                                  |
+|-----------------|------------------------------------------|
+| Python          | Core programming language                |
+| Google ADK      | Agent Development Kit for AI agent orchestration |
+| Gemini 2.5 Flash| AI language model for natural language understanding and generation |
+| Pydantic        | Data validation and schema enforcement  |
+| JSON            | Data interchange format between agents  |
+
+***
+
+## Architecture & Design Patterns
+
+- **Agent Pattern:** Modular AI agents specialized per task (scouting, budgeting, communication).
+- **Orchestration Pattern:** Master orchestrator delegates tasks to workflows and agents.
+- **Workflow Pattern:** Combining agents in sequential, parallel, and loop flows for iterative planning.
+- **Tool Pattern:** Agents expose functionality as callable tools.
+- **State Management:** Shared session state for consistent data communication via ToolContext.
+- **Mocking:** Simulated actions (e.g., sending emails) to test workflows without external dependencies.
+
+***
+
+## Components
+
+### Agents
+
+- **Intake Agent:** Extracts event-related parameters from user input.
+- **Guest Management Agent:** Adds and retrieves guest information.
+- **Venue, Catering, Entertainment Scouts:** Find options with cost estimates.
+- **Initial Plan Synthesizer:** Merges scouting results into one plan.
+- **Accountant Agent:** Selects cheapest options and evaluates plan budget.
+- **Cost Cutter Agent:** Iteratively refines plan if over budget.
+- **Communications Agent:** Drafts event announcement emails.
+- **Final Report Agent:** Produces a comprehensive markdown report.
+
+### Workflows
+
+- **Parallel Logistics Scouting:** Simultaneously scout venues, caterers, and entertainers.
+- **Initial Planning Workflow:** Sequential combination of scouting and planning agents.
+- **Budget Refinement Loop:** Iterative budget optimization.
+- **Full Plan Workflow:** End-to-end planning with all agents.
+- **Master Orchestrator:** Overall task delegator.
+
+***
+
+## Usage
+
+1. Provide event details (type, city, budget) to initiate planning.
+2. Manage guests via guest management tools.
+3. Receive a finalized event plan within budget.
+4. Draft and simulate event announcement emails.
+5. Obtain comprehensive event planning reports.
+
+***
+
+## Example
+
+```python
+# Sample usage to add a guest
+addguestname("John Doe", "john@example.com")
+
+# Retrieving guest list
+guest_list = getguestlist()
+print(guest_list)
+
+# Initiate full event planning workflow
+plan = fullplanworkflow(event_type="AI Tech Meetup", city="San Francisco", budget=10000)
+print(plan)
+```
+
+***
+
+## SET UP AND INSTALLATION
 ## Prerequisites
 
 - Python 3.x
